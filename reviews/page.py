@@ -8,7 +8,7 @@ from st_aggrid import AgGrid
 def show_reviews():
     review_service = ReviewService()
     reviews = review_service.get_reviews()
-    
+
     if reviews:
         st.write('Lista Avaliações')
         reviews_df = pd.json_normalize(reviews)
@@ -19,7 +19,7 @@ def show_reviews():
         )
     else:
         st.warning('Nenhuma avaliação encontrada')
-    
+
     # cadastrar nova avaliação
     st.title('Cadastrar nova avaliação')
     movie_service = MovieService()
@@ -36,10 +36,10 @@ def show_reviews():
     )
 
     comment = st.text_area('Comentário')
-    
+
     if st.button('Cadastrar'):
         new_review = review_service.create_review(
-            movie=movie_titles[selected_movie_title], # atraves do nome pegamos o id 
+            movie=movie_titles[selected_movie_title],  # atraves do nome pegamos o id
             stars=stars,
             comment=comment,
         )

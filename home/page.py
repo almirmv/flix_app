@@ -30,4 +30,3 @@ def show_home():
 
     st.subheader('Média Geral de Estrelas nas Avalições')
     st.write(movie_stats['average_stars'])
-    

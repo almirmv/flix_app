@@ -3,19 +3,19 @@ from movies.repository import MovieRepository
 
 
 class MovieService:
-    
+
     def __init__(self):
         self.movie_repository = MovieRepository()
-    
+
     def get_movies(self):
         # checa se tem cache na session
         if 'movies' in st.session_state:
-            return st.session_state.movies  
+            return st.session_state.movies
         # sem cache, pega da API e salva na session
         movies = self.movie_repository.get_movies()
-        st.session_state.movies = movies # guarda na session
-        return movies # retorna None ou movies
-        
+        st.session_state.movies = movies  # guarda na session
+        return movies  # retorna None ou movies
+
     def create_movie(self, title, release_date, genre, actors, resume):
         movie = dict(
             title=title,

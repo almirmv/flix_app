@@ -21,7 +21,7 @@ def show_movies():
         )
     else:
         st.warning('Nenhum filme encontrado')
-    
+
     # cadastrar novos filmes
     st.title('Cadastrar novo Filme')
     title = st.text_input('Título')
@@ -32,19 +32,19 @@ def show_movies():
         max_value=datetime.today(),
         format='DD/MM/YYYY',
     )
-    
+
     # vai precisar carregar a lista de generos ---------
     genre_service = GenreService()
     genres = genre_service.get_genres()
     # list compreesion
-    genres_names = {genre['name']:genre['id'] for genre in genres}
+    genres_names = {genre['name']: genre['id'] for genre in genres}
     selected_genres_name = st.selectbox('Gênero', list(genres_names.keys()))
-    
+
     # vai precisar carregar a lista de Atores ----------
     actor_service = ActorService()
     actors = actor_service.get_actors()
     # list compreesion
-    actor_names = {actor['name']:actor['id'] for actor in actors}
+    actor_names = {actor['name']: actor['id'] for actor in actors}
     selected_actors_names = st.multiselect('Atores/Atrizes', list(actor_names.keys()))
     # outra lis compreensin para listar apenas ids ex. [1,3,7]
     selected_actors_ids = [actor_names[name] for name in selected_actors_names]

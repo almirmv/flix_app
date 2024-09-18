@@ -4,6 +4,7 @@ import streamlit as st
 from st_aggrid import AgGrid
 from actors.service import ActorService
 
+
 def show_actors():
     actor_service = ActorService()
     actors = actor_service.get_actors()
@@ -17,7 +18,7 @@ def show_actors():
         )
     else:
         st.warning('Nenhum Ator/Atriz encontrado')
-    
+
     st.title('Cadastrar novo Ator')
     name = st.text_input("Nome do Ator")
     birthday = st.date_input(
@@ -25,7 +26,7 @@ def show_actors():
         value=datetime.today(),
         min_value=datetime(1600, 1, 1).date(),
         max_value=datetime.today(),
-        format='DD/MM/YYYY', # altera apenas visualmente
+        format='DD/MM/YYYY',  # altera apenas visualmente
     )
     nationality_dropdow = ['BRAZIL', 'USA']
     nationality = st.selectbox(
@@ -41,4 +42,4 @@ def show_actors():
         if new_actor:
             st.rerun()
         else:
-            st.error(f'Erro ao cadastrar Ator/Atriz. verifique os campos')
+            st.error('Erro ao cadastrar Ator/Atriz. verifique os campos')

@@ -12,12 +12,13 @@ def login(username, password):
         st.error(f'Falha ao realizar login: {response.get("error")}')
     else:
         # guarda na session o token
-        #st.session_state.nomedavariavel = valordavariavel
+        # st.session_state.nomedavariavel = valordavariavel
         st.session_state.token = response.get('access')
-        st.rerun() # refresh na aplicacao
+        st.rerun()  # refresh na aplicacao
+
 
 def logout():
     '''limpar chaves do session state'''
-    for key in st.session_state[key]:
+    for key in st.session_state.keys():
         del st.session_state[key]
     st.rerun()

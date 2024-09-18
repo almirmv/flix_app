@@ -15,9 +15,9 @@ class ReviewRepository:
         self.__base_url = os.environ['BASE_URL']
         self.__reviews_url = f'{self.__base_url}reviews/'
         self.__headers = {
-            'authorization': f'Bearer {st.session_state.token}' 
+            'authorization': f'Bearer {st.session_state.token}'
         }
-    
+
     def get_reviews(self):
         response = requests.get(
             self.__reviews_url,

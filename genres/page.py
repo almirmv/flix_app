@@ -11,7 +11,7 @@ def show_genres():
     if genres:
         st.write('Lista Gêneros')
         # aggrid so aceita dataframe, usamos pandas para converter
-        genres_df = pd.json_normalize(genres) # json para data frame
+        genres_df = pd.json_normalize(genres)  # json para data frame
         AgGrid(
             data=genres_df,
             key='genres_grid',
@@ -19,7 +19,7 @@ def show_genres():
     else:
         st.warning('Nenhum gênero encontrado')
     st.title('Cadastrar novo Gênero')
-    name= st.text_input('Nome do Gênero')
+    name = st.text_input('Nome do Gênero')
     if st.button('Cadastrar'):
         new_genre = genre_service.create_genre(
             name=name,
@@ -27,4 +27,4 @@ def show_genres():
         if new_genre:
             st.rerun()
         else:
-            st.error(f'Erro ao cadastrar campo')
+            st.error('Erro ao cadastrar campo')

@@ -1,6 +1,7 @@
 import streamlit as st
 from login.service import login
 
+
 def show_login():
     st.title('Login')
 

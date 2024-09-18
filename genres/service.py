@@ -12,12 +12,12 @@ class GenreService:
     def get_genres(self):
         # checa se tem cache na session
         if 'genres' in st.session_state:
-            return st.session_state.genres     
+            return st.session_state.genres
         # sem cache, pega da API e salva na session
         genres = self.genre_repository.get_genres()
-        st.session_state.genres = genres # guarda na session
-        return genres # retorna None ou genres
-        
+        st.session_state.genres = genres  # guarda na session
+        return genres  # retorna None ou genres
+
     def create_genre(self, name):
         genre = dict(
             name=name,

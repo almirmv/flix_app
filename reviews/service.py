@@ -12,7 +12,7 @@ class ReviewService:
         if 'reviews' in st.session_state:
             return st.session_state.reviews
         reviews = self.review_repository.get_reviews()
-        st.session_state.reviews = reviews # cria cache
+        st.session_state.reviews = reviews  # cria cache
         return reviews
 
     def create_review(self, movie, stars, comment):

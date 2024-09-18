@@ -33,7 +33,7 @@ class ActorRepository:
         response = requests.post(
             self.__actors_url,
             headers=self.__headers,
-            data=actor,   
+            data=actor,
         )
         if response.status_code == 201:
             return response.json()
