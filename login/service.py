@@ -15,3 +15,9 @@ def login(username, password):
         #st.session_state.nomedavariavel = valordavariavel
         st.session_state.token = response.get('access')
         st.rerun() # refresh na aplicacao
+
+def logout():
+    '''limpar chaves do session state'''
+    for key in st.session_state[key]:
+        del st.session_state[key]
+    st.rerun()
